@@ -1,0 +1,12 @@
+﻿# 
+# This file contains the parameter values of the Design Points successfully updated by Ansys Workbench.
+# Project name: Sever_stenosis_Geom_Slices_nofaces
+# Creation date: 12/10/2025 16:04:45
+# 
+# 12/10/2025 16:04:45
+# The parameters defined in the project are:
+# ,P1 - y1 [mm],P2 - y2 [mm],P3 - y3 [mm],P4 - y4 [mm],P5 - w1 [mm],P6 - w2 [mm],P7 - w3 [mm],P8 - w4 [mm]
+# 
+# The following header line defines the name of the columns by reference to the parameters.
+Name,P1,P2,P3,P4,P5,P6,P7,P8
+DP 0,3.2,2.6,2,1.8,1.8,2,2.6,3.2
