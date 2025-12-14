@@ -30,7 +30,7 @@ Hemodynamic-Risk-Assessment/
 ├── README.md
 │
 ├── Report/
-│   ├── Report.pdf
+│   ├── Hemodynamic Risk Assessment in Stenotic Femoral Artery.pdf
 │   └── Figures/
 │
 ├── Geometry&Meshing/
