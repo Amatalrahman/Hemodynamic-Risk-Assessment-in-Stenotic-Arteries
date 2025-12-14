@@ -1,0 +1,23 @@
+Area-Weighted Average 75% stenosis
+                 Static Pressure                 [Pa]
+-------------------------------- --------------------
+                           inlet            169.16706
+                          outlet                    0
+                ---------------- --------------------
+                             Net             84.58353
+
+ Area-Weighted Average 50% stenosis
+                 Static Pressure                 [Pa]
+-------------------------------- --------------------
+                           inlet            55.971371
+                          outlet                    0
+                ---------------- --------------------
+                             Net            27.985685
+
+ Area-Weighted Average Normal 0% stenosis
+                 Static Pressure                 [Pa]
+-------------------------------- --------------------
+                           inlet            30.406926
+                          outlet                    0
+                ---------------- --------------------
+                             Net            15.203463
