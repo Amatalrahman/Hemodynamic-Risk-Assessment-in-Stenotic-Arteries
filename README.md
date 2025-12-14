@@ -2,9 +2,8 @@
 # Hemodynamic Risk Assessment in Stenotic Arteries
 **Course:** SBEG201 – Biotransport  
 **Department:** Systems and Biomedical Engineering  
-**Software:** ANSYS Fluent (Student Version)  
+**Software:** ANSYS Fluent (Student Version R2025)  
 
-<img src="https://github.com/user-attachments/assets/bac0ec42-0dc4-42b3-b4a4-08ac0a82aa26" width="200" height="auto"/>
 
 ---
 
@@ -61,6 +60,8 @@ The **Common Femoral Artery (CFA)** was selected due to its clinical relevance i
 - Diameter: **6.9 mm**
 - Inlet Velocity: **0.153 m/s**
 - Blood Density: **1060 kg/m³**
+<img src="https://github.com/user-attachments/assets/bac0ec42-0dc4-42b3-b4a4-08ac0a82aa26" width="200" height="auto"/>
+
 ![Image](https://github.com/user-attachments/assets/2bf3182b-bbdf-4ce3-bfa0-2971cca0c4d6)
 
 All physiological inputs are justified using peer-reviewed literature.
