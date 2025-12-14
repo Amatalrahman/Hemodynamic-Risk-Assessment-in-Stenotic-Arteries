@@ -4,6 +4,7 @@
 **Department:** Systems and Biomedical Engineering  
 **Software:** ANSYS Fluent (Student Version R2025)  
 
+<img width="792" height="256" alt="Image" src="https://github.com/user-attachments/assets/edc5d690-fc5b-4522-90fd-7449e6469a62" />
 
 ---
 
