@@ -1,5 +1,5 @@
 
-# Hemodynamic Risk Assessment in Stenotic Arteries
+# Hemodynamic Risk Assessment in Stenotic Femoral Artery
 **Course:** SBEG201 – Biotransport  
 **Department:** Systems and Biomedical Engineering  
 **Software:** ANSYS Fluent (Student Version R2025)  
