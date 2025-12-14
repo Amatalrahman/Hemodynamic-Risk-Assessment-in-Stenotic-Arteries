@@ -210,6 +210,61 @@ Four computational models were developed:
 Each assumption introduces modeling errors that are discussed in the final report.
 
 ---
+## ⚠️ Challenges & Lessons Learned
+
+Throughout the project, several technical challenges were encountered during the geometry creation and meshing stages. Addressing these issues was essential for developing a stable, accurate, and computationally efficient CFD model. The following points summarize the main challenges and the lessons learned.
+
+---
+
+### 1️⃣ Improper Geometry Segmentation & Naming Strategy
+
+**Challenge:**  
+Initially, the arterial geometry was segmented multiple times during the geometry creation stage without a clear segmentation strategy. Additionally, some regions were assigned non-descriptive or inconsistent names.
+
+**Impact:**  
+- Difficulty in assigning boundary conditions correctly  
+- Confusion during meshing and solver setup  
+- Increased time spent debugging boundary and region definitions  
+
+**Lesson Learned:**  
+A clear understanding of the **physical problem and flow direction** must precede geometry segmentation. The artery should be divided logically into **inlet, stenosis, and outlet regions** from the beginning, with consistent and descriptive naming conventions to streamline later simulation steps.
+
+---
+
+### 2️⃣ Residual Construction Plane Causing Mesh Distortion
+
+**Challenge:**  
+A construction plane used during the slicing process was unintentionally left within the geometry and not deleted prior to meshing.
+
+**Impact:**  
+- Introduction of non-physical internal surfaces  
+- Severe mesh distortion and skewed elements  
+- Unexpected meshing errors that were difficult to trace  
+
+**Lesson Learned:**  
+All **construction and reference planes** must be carefully reviewed and removed before mesh generation. Even unused planes can interfere with meshing algorithms and lead to subtle but severe mesh quality degradation.
+
+<img width="1232" height="404" alt="Image" src="https://github.com/user-attachments/assets/f1379c12-be2a-4a19-9e73-29a6d7414b50" />
+
+---
+
+### 3️⃣ Full-Length Geometry Meshed with Tetrahedral Elements
+
+**Challenge:**  
+In the early stages, the full arterial geometry was meshed as a single body using **tetrahedral elements** without regional segmentation.
+
+**Impact:**  
+- Excessive cell count  
+- High computational cost  
+- Poor resolution of near-wall velocity gradients  
+- Reduced accuracy in Wall Shear Stress (WSS) computation  
+
+**Lesson Learned:**  
+For internal biomedical flows, **hexahedral-dominant meshes** combined with sweepable bodies and MultiZone methods offer significantly better numerical accuracy and computational efficiency compared to tetrahedral meshes.
+
+<img width="1337" height="786" alt="Image" src="https://github.com/user-attachments/assets/114069f4-5c83-4db1-b621-dbe18776f13b" />
+
+---
 
 ## 📚 References
 1. Nichols, W. W., O’Rourke, M. F., & Vlachopoulos, C., *McDonald's Blood Flow in Arteries*, 6th ed., 2011.  
