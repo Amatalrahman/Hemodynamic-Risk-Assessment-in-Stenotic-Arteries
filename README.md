@@ -62,9 +62,79 @@ The **Common Femoral Artery (CFA)** was selected due to its clinical relevance i
 - Blood Density: **1060 kg/m³**
 <img src="https://github.com/user-attachments/assets/bac0ec42-0dc4-42b3-b4a4-08ac0a82aa26" width="200" height="auto"/>
 
-![Image](https://github.com/user-attachments/assets/2bf3182b-bbdf-4ce3-bfa0-2971cca0c4d6)
 
 All physiological inputs are justified using peer-reviewed literature.
+
+---
+## 🧩 Geometry Creation & Meshing
+
+### Geometry Construction
+The arterial geometry was developed using an **axisymmetric modeling approach** to reduce computational cost while preserving the essential three-dimensional flow physics.  
+A **2D planar profile** representing half of the arterial cross-section was first created and then **revolved about the central axis** to generate the full 3D fluid domain.
+<img width="1431" height="753" alt="Image" src="https://github.com/user-attachments/assets/4a5866e9-1a72-409c-a295-80ef671aa7bd" />
+<img width="1257" height="584" alt="Image" src="https://github.com/user-attachments/assets/c4868034-1899-4157-9cbf-cfe9aeca9f0c" />
+
+To enable precise boundary condition assignment and localized mesh control, the artery was divided into **three longitudinal regions**:
+- **Inlet section**
+- **Stenosis region**
+- **Outlet section**
+<img width="1436" height="756" alt="Image" src="https://github.com/user-attachments/assets/aa2f25f7-8a79-46af-a889-8fe898b9f72e" />
+
+Each boundary surface was defined as a **named selection**, including:
+- inlet  
+- outlet  
+- Healthy wall
+- Stenosis Wall 
+- Symmetry Wall  
+
+The stenotic wall region was treated separately from the healthy wall to allow **targeted refinement in the diseased segment**.
+
+
+---
+
+### Stenosis Definition
+Stenosis severity was defined based on **percentage cross-sectional area reduction**, according to:
+
+**% Area Reduction** = (1 − *A*ₜₕᵣₒₐₜ / *A*ᵢₙₗₑₜ) × 100
+
+
+Using this definition, three arterial models were generated:
+- **Healthy artery:** 0% stenosis  
+- **Moderate stenosis:** 50% area reduction  
+- **Severe stenosis:** 75% area reduction  
+
+To ensure biological realism and avoid artificial flow disturbances, the stenosis geometry was implemented using a **smooth cosine-shaped profile**, rather than sharp geometric transitions.
+
+<img width="2297" height="603" alt="Image" src="https://github.com/user-attachments/assets/00ef5c52-0eca-4bab-b917-2708f884973e" />
+
+---
+
+### Mesh Generation Strategy
+Mesh generation was performed using the **MultiZone meshing method** combined with a **sweepable body approach**, enabling the use of predominantly **hexahedral elements**.
+
+Hexahedral elements were selected due to their:
+- Superior numerical accuracy  
+- Improved convergence behavior  
+- Enhanced resolution of velocity and shear gradients  
+
+The mesh strategy included:
+- **Global element size:** 0.3 mm  
+- **Body sizing:** 0.2 mm for improved mesh uniformity  
+- **Local face sizing at stenosis wall:** \(5 \times 10^{-2}\) mm to resolve high velocity and pressure gradients at the throat and post-stenotic region  
+
+![Image](https://github.com/user-attachments/assets/9e4eef1c-074e-4e36-b111-869196bd91b6)
+---
+
+### Near-Wall Refinement (Inflation Layers)
+To ensure accurate computation of **Wall Shear Stress (WSS)**, inflation layers were applied along all arterial walls.
+
+Inflation settings:
+- **First layer thickness:** \(5 \times 10^{-3}\) mm  
+- **Number of layers:** 8  
+- **Growth rate:** 1.2  
+
+This configuration ensured proper resolution of the **viscous sublayer**, allowing reliable capture of near-wall velocity gradients critical for WSS analysis.
+
 
 ---
 
